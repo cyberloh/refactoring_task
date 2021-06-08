@@ -11,7 +11,7 @@ function App() {
 
   const dataRowsRender = ():any[] => {
     return data.map(item => (
-      <div key={'data-row-' + item.id.toString()} className={'App-item'}>{'Title is:' + item.title + '!'}</div>
+      <div key={'data-row-' + item.id.toString()} className={'App-item'}>{'Title is: ' + item.title + '!'}</div>
     ));
   };
 
