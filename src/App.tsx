@@ -4,7 +4,7 @@ import './App.css';
 import DataList from './components/DataList';
 import { getDataPortion } from './utils';
 
-function App() {
+export default function App() {
   
   const dataPortionLength = 20; //imagine we've got it from user's settings
   
@@ -29,6 +29,4 @@ function App() {
           </div>
       </div>
   );
-}
-
-export default App;
+};
