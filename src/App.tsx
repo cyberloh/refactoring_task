@@ -1,19 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-const randString = ():string => {
-  return [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('');
-};
-
-interface DataItem {
-  id: number,
-  title: string
-};
-
-const getDataPortion = (startId: number, length:number):DataItem[] => {
-  return Array.from({length}, (x, i) => i).map(id => ({id: id + startId, title: randString()}));
-};
+import { getDataPortion } from './utils';
 
 function App() {
   
