@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import DataItem from './interfaces/DataItem';
+import DataList from './components/DataList';
 import { getDataPortion } from './utils';
 
 function App() {
@@ -9,12 +9,6 @@ function App() {
   const dataPortionLength = 20; //imagine we've got it from user's settings
   
   const [data, setData] = React.useState(getDataPortion(0, dataPortionLength)); //when we name it 'data' it requires no explaination
-
-  const dataRowsRender = ():any[] => {
-    return data.map((item:DataItem) => (
-      <div key={'data-row-' + item.id.toString()} className={'App-item'}>{'Title is: ' + item.title + '!'}</div>
-    ));
-  };
 
   const onAddMoreClick = (e:any)  => {
     setData([...data, ...getDataPortion(data.length, dataPortionLength)]);
@@ -31,7 +25,7 @@ function App() {
               </button>
           </div>
           <div>
-              { dataRowsRender() }
+              <DataList data={data}/>
           </div>
       </div>
   );
