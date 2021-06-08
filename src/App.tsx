@@ -6,8 +6,13 @@ const randString = ():string => {
   return [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('');
 };
 
-const getDataPortion = (startId: number, length:number):any[] => {
-  return [...Array(length)].map(id => ({id: id + startId, title: randString()}));
+interface DataItem {
+  id: number,
+  title: string
+};
+
+const getDataPortion = (startId: number, length:number):DataItem[] => {
+  return Array.from({length}, (x, i) => i).map(id => ({id: id + startId, title: randString()}));
 };
 
 function App() {
@@ -18,7 +23,7 @@ function App() {
 
   const dataRowsRender = ():any[] => {
     return data.map(item => (
-      <div key={'data-row-' + item['id']} className={'App-item'}>{'Title is:' + item.title + '!'}</div>
+      <div key={'data-row-' + item.id.toString()} className={'App-item'}>{'Title is:' + item.title + '!'}</div>
     ));
   };
 
