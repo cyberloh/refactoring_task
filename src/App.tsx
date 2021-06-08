@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import DataItem from './interfaces/DataItem';
 import { getDataPortion } from './utils';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   const [data, setData] = React.useState(getDataPortion(0, dataPortionLength)); //when we name it 'data' it requires no explaination
 
   const dataRowsRender = ():any[] => {
-    return data.map(item => (
+    return data.map((item:DataItem) => (
       <div key={'data-row-' + item.id.toString()} className={'App-item'}>{'Title is: ' + item.title + '!'}</div>
     ));
   };
