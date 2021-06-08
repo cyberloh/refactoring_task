@@ -6,12 +6,13 @@ import { getDataPage } from './utils';
 
 export default function App() {
   
-  const dataPortionLength = 20; //imagine we've got it from user's settings
+  const dataPageLength = 20; //imagine we've got it from user's settings
+  const dataStringLength = 10;
   
-  const [data, setData] = React.useState(getDataPage(0, dataPortionLength)); //when we name it 'data' it requires no explaination
+  const [data, setData] = React.useState(getDataPage(0, dataPageLength, dataStringLength)); //when we name it 'data' it requires no explaination
 
   const onAddMoreClick = (e:any)  => {
-    setData([...data, ...getDataPage(data.length, dataPortionLength)]);
+    setData([...data, ...getDataPage(data.length, dataPageLength, dataStringLength)]);
   };
 
   return (

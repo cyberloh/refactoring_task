@@ -1,10 +1,10 @@
 import DataItem from '../interfaces/DataItem';
 
-const randString = ():string => {
-  return [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('');
+const randString = (stringLength: number):string => {
+  return [...Array(stringLength)].map(i => (~~(Math.random()*36)).toString(36)).join('');
 };
 
-export const getDataPage = (startId: number, length:number):DataItem[] => {
-  return Array.from({length}, (x, i) => i).map(id => ({id: id + startId, title: randString()}));
+export const getDataPage = (startId: number, listLength:number, stringLength: number):DataItem[] => {
+  return Array.from({length: listLength}, (x, i) => i).map(id => ({id: id + startId, title: randString(stringLength)}));
 };
 
