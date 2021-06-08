@@ -2,16 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import DataList from './components/DataList';
-import { getDataPortion } from './utils';
+import { getDataPage } from './utils';
 
 export default function App() {
   
   const dataPortionLength = 20; //imagine we've got it from user's settings
   
-  const [data, setData] = React.useState(getDataPortion(0, dataPortionLength)); //when we name it 'data' it requires no explaination
+  const [data, setData] = React.useState(getDataPage(0, dataPortionLength)); //when we name it 'data' it requires no explaination
 
   const onAddMoreClick = (e:any)  => {
-    setData([...data, ...getDataPortion(data.length, dataPortionLength)]);
+    setData([...data, ...getDataPage(data.length, dataPortionLength)]);
   };
 
   return (
